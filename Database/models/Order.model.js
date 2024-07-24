@@ -1,0 +1,36 @@
+const mongoose=require("mongoose");
+const OrderSchema=new mongoose.Schema({
+    address:{
+        type:String,
+        required:true,
+    },
+    quantity:{
+        type:Number,
+        required:true,
+    },
+    productname:{
+        type:String,
+        required:true
+    },
+    orderedby:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user'
+    },
+    product:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'product'
+    },
+    terminated:{
+        type:Boolean,
+        default:false
+    },
+    approval:{
+        type:String,
+        default:"pending"
+    },
+    status:{
+        type:String,
+        default:"pending"
+    }
+})
+module.exports=mongoose.model("order",OrderSchema);
