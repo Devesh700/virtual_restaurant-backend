@@ -6,6 +6,7 @@ const categoryModel=require("../models/Category.model");
 const SellerModel=require("../models/Seller.model")
 const DB=async ()=>{
 try{
+  console.log(process.env.MONGODB_URI);
 const connectionInstance=await mongoose.connect(`${process.env.MONGODB_URI}/${process.env.DBName}`);
   console.log(`mongodb connection successfull on !! DB HOST : ${connectionInstance.connection.host}\nwith name of DATABASE : ${process.env.DBNAME}`);
 }

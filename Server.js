@@ -22,7 +22,9 @@ router.use(cookieSession({
 }));
 
 router.use(cookieParser());
-router.use(cors());
+router.use(cors({
+    origin:"*"
+}));
 router.use('/uploads', express.static('uploads'));
 
 router.use("/api/user", UserRouter);
